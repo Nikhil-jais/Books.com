@@ -3959,3 +3959,326 @@ a {
 .book-details-information h1 {
     color: yellow !important;
 }
+/* ============================================================
+   GRAND LIBRARY — LIGHT THEME
+   ============================================================ */
+
+html[data-theme="light"] {
+    --bg: #f4efe6;
+    --bg-soft: #ebe3d5;
+    --surface: #fffaf1;
+    --surface-hover: #f8f0e3;
+
+    --gold: #9b6b24;
+    --gold-light: #b78335;
+
+    --cream: #241f19;
+    --text: #332d26;
+    --text-soft: #6f6559;
+
+    --border: rgba(72, 55, 35, 0.14);
+
+    --shadow:
+        0 25px 70px rgba(72, 55, 35, 0.14);
+}
+
+
+/* Main page */
+
+html[data-theme="light"] body {
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(183, 131, 53, 0.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #f8f3ea,
+            #eee6d8
+        );
+
+    color: var(--text);
+}
+
+
+/* Navigation */
+
+html[data-theme="light"] .top-navigation {
+    background:
+        rgba(248, 243, 234, 0.78);
+
+    border-bottom-color:
+        rgba(72, 55, 35, 0.12);
+
+    box-shadow:
+        0 10px 35px rgba(72, 55, 35, 0.06);
+}
+
+
+/* Logo */
+
+html[data-theme="light"] .logo-mark {
+    color: #9b6b24;
+}
+
+html[data-theme="light"] .logo-text strong {
+    color: #241f19;
+}
+
+html[data-theme="light"] .logo-text small {
+    color: #786d60;
+}
+
+
+/* Navigation links */
+
+html[data-theme="light"] .nav-link {
+    color: #756b5e;
+}
+
+html[data-theme="light"] .nav-link:hover,
+html[data-theme="light"] .nav-link.active {
+    color: #241f19;
+}
+
+
+/* Theme / search buttons */
+
+html[data-theme="light"] .icon-button,
+html[data-theme="light"] .profile-button {
+    background:
+        rgba(255, 250, 241, 0.85);
+
+    border-color:
+        rgba(72, 55, 35, 0.14);
+
+    color: #3b332a;
+
+    box-shadow:
+        0 8px 25px rgba(72, 55, 35, 0.08);
+}
+
+
+/* Headings */
+
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3 {
+    color: #241f19;
+}
+
+
+/* Normal text */
+
+html[data-theme="light"] p {
+    color: #6f6559;
+}
+
+
+/* Sections */
+
+html[data-theme="light"] .library-section {
+    background: transparent;
+}
+
+
+/* Book cards */
+
+html[data-theme="light"] .book-card {
+    background:
+        rgba(255, 250, 241, 0.82);
+
+    border-color:
+        rgba(72, 55, 35, 0.12);
+
+    box-shadow:
+        0 18px 45px rgba(72, 55, 35, 0.08);
+}
+
+html[data-theme="light"] .book-card:hover {
+    background:
+        rgba(255, 250, 241, 1);
+
+    box-shadow:
+        0 25px 65px rgba(72, 55, 35, 0.14);
+}
+
+
+/* Book information */
+
+html[data-theme="light"] .book-information h3 {
+    color: #2c251e;
+}
+
+html[data-theme="light"] .book-information p {
+    color: #786d60;
+}
+
+
+/* Category cards */
+
+html[data-theme="light"] .category-card {
+    box-shadow:
+        0 20px 55px rgba(72, 55, 35, 0.10);
+}
+
+
+/* Quote */
+
+html[data-theme="light"] .library-quote {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 250, 241, 0.75),
+            rgba(235, 227, 213, 0.85)
+        );
+
+    border-top-color:
+        rgba(72, 55, 35, 0.10);
+
+    border-bottom-color:
+        rgba(72, 55, 35, 0.10);
+}
+
+
+/* Discovery panel */
+
+html[data-theme="light"] .discovery-panel {
+    background:
+        linear-gradient(
+            135deg,
+            #e9dfcf,
+            #f7f0e5
+        );
+
+    border-color:
+        rgba(72, 55, 35, 0.12);
+}
+
+
+/* Footer */
+
+html[data-theme="light"] .site-footer {
+    background:
+        #e7dece;
+
+    border-top-color:
+        rgba(72, 55, 35, 0.12);
+}
+
+html[data-theme="light"] .footer-column a,
+html[data-theme="light"] .footer-brand p {
+    color: #716659;
+}
+
+html[data-theme="light"] .footer-column a:hover {
+    color: #241f19;
+}
+
+
+/* Search overlay */
+
+html[data-theme="light"] .search-overlay {
+    background:
+        rgba(244, 239, 230, 0.88);
+}
+
+html[data-theme="light"] .search-dialog {
+    background:
+        #fffaf1;
+
+    border-color:
+        rgba(72, 55, 35, 0.14);
+
+    box-shadow:
+        0 35px 100px rgba(72, 55, 35, 0.20);
+}
+
+html[data-theme="light"] .search-dialog-header {
+    color: #332d26;
+}
+
+html[data-theme="light"] .large-search {
+    background:
+        #f3ecdf;
+
+    border-color:
+        rgba(72, 55, 35, 0.12);
+}
+
+html[data-theme="light"] .large-search input {
+    color: #241f19;
+}
+
+html[data-theme="light"] .large-search input::placeholder {
+    color: #978b7c;
+}
+
+
+/* Toast */
+
+html[data-theme="light"] .library-toast {
+    background:
+        #fffaf1;
+
+    border-color:
+        rgba(72, 55, 35, 0.14);
+
+    color: #332d26;
+
+    box-shadow:
+        0 20px 55px rgba(72, 55, 35, 0.16);
+}
+
+
+/* Book details */
+
+html[data-theme="light"] .book-details-page {
+    background:
+        transparent;
+}
+
+html[data-theme="light"] .book-details-information > h1 {
+    color: #241f19;
+}
+
+html[data-theme="light"] .book-details-information > h2 {
+    color: #9b6b24;
+}
+
+html[data-theme="light"] .book-details-description {
+    color: #6f6559;
+}
+
+html[data-theme="light"] .book-detail-information {
+    border-top-color:
+        rgba(72, 55, 35, 0.12);
+}
+
+html[data-theme="light"] .book-detail-information strong {
+    color: #332d26;
+}
+
+
+/* Smooth theme transition */
+
+html,
+body,
+.top-navigation,
+.book-card,
+.category-card,
+.site-footer,
+.discovery-panel,
+.search-dialog,
+.icon-button,
+.profile-button,
+.book-details-information,
+.library-toast {
+    transition:
+        background-color 0.45s ease,
+        background 0.45s ease,
+        color 0.45s ease,
+        border-color 0.45s ease,
+        box-shadow 0.45s ease;
+}
