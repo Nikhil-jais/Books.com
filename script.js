@@ -177,6 +177,8 @@ async function initializeLibrary() {
 
     updateActiveNavigation();
 
+    setupTheme();
+
     await loadHomeBooks();
 
 }
@@ -2524,3 +2526,112 @@ console.log(
     "%cThe catalogue is open.",
     "font-size:12px;color:#aaa;"
 );
+/* ============================================================
+   GRAND LIBRARY — THEME MODE
+   ============================================================ */
+
+function setupTheme() {
+
+    const themeButton =
+        document.querySelector(
+            '[data-theme-toggle]'
+        );
+
+    if (!themeButton) {
+        return;
+    }
+
+    const savedTheme =
+        localStorage.getItem(
+            "grand-library-theme"
+        );
+
+    if (savedTheme === "light") {
+        document.documentElement
+            .setAttribute(
+                "data-theme",
+                "light"
+            );
+    }
+
+    updateThemeButton();
+
+    themeButton.addEventListener(
+        "click",
+        () => {
+
+            const currentTheme =
+                document.documentElement
+                    .getAttribute("data-theme");
+
+            const newTheme =
+                currentTheme === "light"
+                    ? "dark"
+                    : "light";
+
+            if (newTheme === "light") {
+
+                document.documentElement
+                    .setAttribute(
+                        "data-theme",
+                        "light"
+                    );
+
+                localStorage.setItem(
+                    "grand-library-theme",
+                    "light"
+                );
+
+            } else {
+
+                document.documentElement
+                    .removeAttribute(
+                        "data-theme"
+                    );
+
+                localStorage.setItem(
+                    "grand-library-theme",
+                    "dark"
+                );
+            }
+
+            updateThemeButton();
+        }
+    );
+}
+
+
+function updateThemeButton() {
+
+    const themeButton =
+        document.querySelector(
+            '[data-theme-toggle]'
+        );
+
+    if (!themeButton) {
+        return;
+    }
+
+    const isLight =
+        document.documentElement
+            .getAttribute("data-theme") === "light";
+
+    themeButton.innerHTML =
+        isLight
+            ? "☀️"
+            : "🌙";
+
+    themeButton.setAttribute(
+        "aria-label",
+        isLight
+            ? "Switch to dark mode"
+            : "Switch to light mode"
+    );
+
+    themeButton.setAttribute(
+        "title",
+        isLight
+            ? "Switch to dark mode"
+            : "Switch to light mode"
+    );
+}
