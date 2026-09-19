@@ -3950,3 +3950,12 @@ a {
     }
 
 }
+/* CSS CONNECTION TEST */
+
+.book-details-page {
+    background: red !important;
+}
+
+.book-details-information h1 {
+    color: yellow !important;
+}
