@@ -2935,3 +2935,485 @@ a {
 .book-information p {
     margin-top: 7px;
 }
+/* ============================================================
+   BOOK DETAILS — GRAND LIBRARY EDITION
+   ============================================================ */
+
+.book-detail {
+    position: relative;
+
+    min-height: 620px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(260px, 360px)
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: clamp(45px, 7vw, 100px);
+
+    padding:
+        80px
+        clamp(24px, 7vw, 110px)
+        100px;
+
+    overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
+   BOOK COVER
+   ------------------------------------------------------------ */
+
+.book-detail-cover {
+    position: relative;
+
+    width: min(100%, 330px);
+
+    aspect-ratio: 2 / 3;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border-radius:
+        5px
+        18px
+        18px
+        5px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #211d20,
+            #0e0e13
+        );
+
+    border:
+        1px solid
+        rgba(215, 181, 109, 0.18);
+
+    box-shadow:
+        -25px 35px 70px
+        rgba(0, 0, 0, 0.65),
+        0 0 0 1px
+        rgba(255, 255, 255, 0.025);
+
+    transform:
+        perspective(1000px)
+        rotateY(-4deg);
+
+    transition:
+        transform .7s var(--ease),
+        box-shadow .7s var(--ease);
+}
+
+.book-detail-cover:hover {
+    transform:
+        perspective(1000px)
+        rotateY(0deg)
+        translateY(-7px);
+
+    box-shadow:
+        -25px 45px 90px
+        rgba(0, 0, 0, 0.72),
+        0 0 45px
+        rgba(215, 181, 109, 0.08);
+}
+
+.book-detail-cover img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* ------------------------------------------------------------
+   COVER GLOW
+   ------------------------------------------------------------ */
+
+.book-detail-cover::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            105deg,
+            transparent 25%,
+            rgba(255,255,255,.14) 47%,
+            transparent 67%
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:
+        transform 1s var(--ease);
+}
+
+.book-detail-cover:hover::after {
+    transform:
+        translateX(120%);
+}
+
+
+/* ------------------------------------------------------------
+   DETAIL CONTENT
+   ------------------------------------------------------------ */
+
+.book-detail-content {
+    position: relative;
+
+    max-width: 760px;
+
+    animation:
+        detailContentEnter .8s var(--ease) both;
+}
+
+@keyframes detailContentEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ------------------------------------------------------------
+   SMALL LABEL
+   ------------------------------------------------------------ */
+
+.book-detail-kicker {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 18px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: .3em;
+
+    text-transform: uppercase;
+}
+
+.book-detail-kicker::before {
+    content: "";
+
+    width: 32px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold)
+        );
+}
+
+
+/* ------------------------------------------------------------
+   TITLE
+   ------------------------------------------------------------ */
+
+.book-detail-title {
+    max-width: 850px;
+
+    color: var(--cream);
+
+    font-family: var(--serif);
+
+    font-size:
+        clamp(
+            45px,
+            6vw,
+            82px
+        );
+
+    font-weight: 500;
+
+    line-height: .9;
+
+    letter-spacing: -.04em;
+
+    text-wrap: balance;
+}
+
+
+/* ------------------------------------------------------------
+   AUTHOR
+   ------------------------------------------------------------ */
+
+.book-detail-author {
+    margin-top: 18px;
+
+    color: var(--gold-light);
+
+    font-family: var(--serif);
+
+    font-size:
+        clamp(
+            20px,
+            2.2vw,
+            28px
+        );
+
+    font-weight: 400;
+}
+
+
+/* ------------------------------------------------------------
+   DESCRIPTION
+   ------------------------------------------------------------ */
+
+.book-detail-description {
+    max-width: 680px;
+
+    margin-top: 25px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.85;
+}
+
+
+/* ------------------------------------------------------------
+   METADATA
+   ------------------------------------------------------------ */
+
+.book-detail-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px 28px;
+
+    margin-top: 30px;
+
+    padding-top: 22px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.book-detail-meta-item {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.book-detail-meta-item span:first-child {
+    color: var(--gold);
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: .25em;
+
+    text-transform: uppercase;
+}
+
+.book-detail-meta-item span:last-child {
+    color: var(--cream);
+
+    font-size: 11px;
+}
+
+
+/* ------------------------------------------------------------
+   ACTION BUTTONS
+   ------------------------------------------------------------ */
+
+.book-detail-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+.book-detail-actions .primary-button,
+.book-detail-actions .secondary-button {
+    min-height: 50px;
+
+    padding:
+        0
+        20px;
+}
+
+
+/* ------------------------------------------------------------
+   BACK BUTTON
+   ------------------------------------------------------------ */
+
+#backToLibrary {
+    cursor: pointer;
+}
+
+
+/* ------------------------------------------------------------
+   DETAIL PAGE AMBIENT LIGHT
+   ------------------------------------------------------------ */
+
+.book-detail::before {
+    content: "";
+
+    position: absolute;
+
+    width: 550px;
+    height: 550px;
+
+    left: 4%;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(215,181,109,.09),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.book-detail::after {
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 500px;
+
+    right: -200px;
+    top: 20%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(70,55,100,.08),
+            transparent 70%
+        );
+
+    filter: blur(30px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE DETAIL PAGE
+   ------------------------------------------------------------ */
+
+@media (max-width: 800px) {
+
+    .book-detail {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding:
+            60px
+            20px
+            75px;
+    }
+
+    .book-detail-cover {
+        width: min(75vw, 300px);
+    }
+
+    .book-detail-content {
+        text-align: left;
+    }
+
+    .book-detail-title {
+        font-size:
+            clamp(
+                42px,
+                13vw,
+                68px
+            );
+    }
+
+    .book-detail-description {
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .book-detail {
+        padding:
+            45px
+            18px
+            60px;
+    }
+
+    .book-detail-cover {
+        width: min(78vw, 270px);
+    }
+
+    .book-detail-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .book-detail-actions .primary-button,
+    .book-detail-actions .secondary-button {
+        width: 100%;
+    }
+
+    .book-detail-meta {
+        gap: 18px;
+
+        flex-direction: column;
+    }
+}
