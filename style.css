@@ -2835,3 +2835,103 @@ a {
         transition-duration: .01ms !important;
     }
 }
+/* ============================================================
+   BOOK CARD — FINAL VISUAL FIX
+   ============================================================ */
+
+.book-card {
+    min-width: 0;
+    overflow: visible;
+}
+
+.book-cover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #15131a;
+}
+
+.book-cover img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.book-cover-shine {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 2;
+}
+
+.book-favorite {
+    position: absolute !important;
+    top: 14px;
+    right: 14px;
+
+    width: 42px !important;
+    height: 42px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50% !important;
+
+    background: rgba(10, 10, 14, 0.72) !important;
+    color: #ffffff !important;
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+    z-index: 10;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.book-favorite:hover {
+    transform: scale(1.1);
+    background: rgba(215, 181, 109, 0.9) !important;
+    border-color: rgba(215, 181, 109, 0.9) !important;
+    color: #111 !important;
+}
+
+.book-favorite.saved {
+    background: rgba(215, 181, 109, 0.95) !important;
+    border-color: #d7b56d !important;
+    color: #111 !important;
+}
+
+.book-information {
+    padding-top: 16px;
+}
+
+.book-information h3 {
+    margin: 0;
+    line-height: 1.25;
+}
+
+.book-information p {
+    margin-top: 7px;
+}
