@@ -2078,31 +2078,41 @@ function showBookDetails(book) {
                     </p>
 
 
-                    <div class="book-detail-actions">
+                  <div class="book-detail-actions">
 
-                        <button
-                            class="primary-button"
-                            id="detailSaveButton"
-                            type="button"
-                        >
-                            ${
-                                state.favorites.includes(
-                                    book.id
-                                )
-                                    ? "♥ Saved to My Shelf"
-                                    : "♡ Add to My Shelf"
-                            }
-                        </button>
+    <a
+        class="primary-button"
+        href="https://openlibrary.org${escapeHTML(book.id)}"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        📖 Read / Borrow
+        <span class="button-arrow">↗</span>
+    </a>
 
-                        <button
-                            class="secondary-button"
-                            id="backToLibrary"
-                            type="button"
-                        >
-                            ← Back to Library
-                        </button>
+    <button
+        class="secondary-button"
+        id="detailSaveButton"
+        type="button"
+    >
+        ${
+            state.favorites.includes(
+                book.id
+            )
+                ? "♥ Saved to My Shelf"
+                : "♡ Add to My Shelf"
+        }
+    </button>
 
-                    </div>
+    <button
+        class="secondary-button"
+        id="backToLibrary"
+        type="button"
+    >
+        ← Back to Library
+    </button>
+
+</div>
 
 
                     <div class="book-detail-information">
