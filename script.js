@@ -358,7 +358,7 @@ function updateActiveNavigation() {
 
         link.classList.toggle(
             "active",
-            href === #${state.currentRoute}
+            href === `#${state.currentRoute}`
         );
 
     });
@@ -532,7 +532,7 @@ function normalizeBook(book) {
 
     const cover =
         book.cover_i
-            ? ${CONFIG.covers}${book.cover_i}-M.jpg
+            ? `${CONFIG.covers}${book.cover_i}-M.jpg`
             : createFallbackCover(
                 book.title
             );
@@ -557,7 +557,7 @@ function normalizeBook(book) {
 
         id:
             book.key
-            || ${book.title}-${author},
+            || `${book.title}-${author}`,
 
         title:
             book.title,
@@ -620,13 +620,13 @@ function renderBooks(
 
     if (!books.length) {
 
-        container.innerHTML = 
+        container.innerHTML = `
             <div class="empty-state">
                 <div class="empty-icon">✦</div>
                 <h3>No books found</h3>
                 <p>Try exploring another part of the library.</p>
             </div>
-        ;
+        `;
 
         return;
     }
@@ -660,11 +660,11 @@ function renderHorizontalBooks(
 
     if (!books.length) {
 
-        container.innerHTML = 
+        container.innerHTML = `
             <div class="empty-state">
                 <p>No books available right now.</p>
             </div>
-        ;
+        `;
 
         return;
     }
@@ -699,7 +699,7 @@ function createBookCard(book) {
         );
 
 
-    return 
+    return `
         <article
             class="book-card"
             data-book-id="${escapeHTML(book.id)}"
@@ -737,14 +737,14 @@ function createBookCard(book) {
                 <p>
                     ${escapeHTML(book.author)}
                     ${book.year !== "Unknown year"
-                        ?  · ${escapeHTML(String(book.year))}
+                        ? ` · ${escapeHTML(String(book.year))}`
                         : ""}
                 </p>
 
             </div>
 
         </article>
-    ;
+    `;
 
 }
 
@@ -761,7 +761,7 @@ function createHorizontalBookCard(book) {
         );
 
 
-    return 
+    return `
         <article
             class="book-card horizontal-book"
             data-book-id="${escapeHTML(book.id)}"
@@ -773,7 +773,7 @@ function createHorizontalBookCard(book) {
                     src="${escapeHTML(book.cover)}"
                     alt="${escapeHTML(book.title)} cover"
                     loading="lazy"
-                    onerror="this.src=${createFallbackCover(book.title)}'"
+                    onerror="this.src='${createFallbackCover(book.title)}'"
                 >
 
                 <button
@@ -799,7 +799,7 @@ function createHorizontalBookCard(book) {
             </div>
 
         </article>
-    ;
+    `;
 
 }
 
@@ -1163,25 +1163,25 @@ async function performSearch(
 
     if (!query) {
 
-        elements.searchResults.innerHTML = 
+        elements.searchResults.innerHTML = `
             <div class="search-empty">
                 <span>✦</span>
                 <p>Search the library to begin.</p>
             </div>
-        ;
+        `;
 
         return;
     }
 
 
-    elements.searchResults.innerHTML = 
+    elements.searchResults.innerHTML = `
         <div class="search-loading">
             <span></span>
             <span></span>
             <span></span>
             <p>Opening the catalogue...</p>
         </div>
-    ;
+    `;
 
 
     try {
@@ -1199,7 +1199,7 @@ async function performSearch(
 
         if (!books.length) {
 
-            elements.searchResults.innerHTML = 
+            elements.searchResults.innerHTML = `
                 <div class="search-empty">
                     <span>◌</span>
                     <h3>No books found</h3>
@@ -1207,7 +1207,7 @@ async function performSearch(
                         Try another title, author or subject.
                     </p>
                 </div>
-            ;
+            `;
 
             return;
         }
@@ -1226,7 +1226,7 @@ async function performSearch(
 
     } catch {
 
-        elements.searchResults.innerHTML = 
+        elements.searchResults.innerHTML = `
             <div class="search-empty">
                 <span>!</span>
                 <h3>The catalogue is resting</h3>
@@ -1234,7 +1234,7 @@ async function performSearch(
                     Please try your search again in a moment.
                 </p>
             </div>
-        ;
+        `;
 
     }
 
@@ -1253,7 +1253,7 @@ function createSearchResult(book) {
         );
 
 
-    return 
+    return `
         <article
             class="search-result"
             data-search-book="${escapeHTML(book.id)}"
@@ -1291,7 +1291,7 @@ function createSearchResult(book) {
             </button>
 
         </article>
-    ;
+    `;
 
 }
 
@@ -1531,7 +1531,7 @@ function renderCategoryShell(
     category
 ) {
 
-    elements.app.innerHTML = 
+    elements.app.innerHTML = `
 
         <section class="category-page">
 
@@ -1586,7 +1586,7 @@ function renderCategoryShell(
 
         </section>
 
-    ;
+    `;
 
 }
 
@@ -1597,7 +1597,7 @@ function renderCategoryShell(
 
 async function showExplorePage() {
 
-    elements.app.innerHTML = 
+    elements.app.innerHTML = `
 
         <section class="explore-page">
 
@@ -1657,7 +1657,7 @@ async function showExplorePage() {
 
         </section>
 
-    ;
+    `;
 
 
     const input =
@@ -1779,7 +1779,7 @@ function showCategoriesPage() {
         );
 
 
-    elements.app.innerHTML = 
+    elements.app.innerHTML = `
 
         <section class="categories-page">
 
@@ -1806,7 +1806,7 @@ function showCategoriesPage() {
 
                     ${categories
                         .map(
-                            ([key, category]) => 
+                            ([key, category]) => `
 
                             <a
                                 href="#/${key}"
@@ -1859,6 +1859,7 @@ function showCategoriesPage() {
 
                             </a>
 
+                        `
                         )
                         .join("")}
 
@@ -1868,7 +1869,7 @@ function showCategoriesPage() {
 
         </section>
 
-    ;
+    `;
 
 
     window.scrollTo({
@@ -1907,7 +1908,7 @@ function showShelfPage() {
             );
 
 
-    elements.app.innerHTML = 
+    elements.app.innerHTML = `
 
         <section class="shelf-page">
 
@@ -1955,7 +1956,7 @@ function showShelfPage() {
 
         </section>
 
-    ;
+    `;
 
 
     const container =
@@ -1964,7 +1965,7 @@ function showShelfPage() {
 
     if (!books.length) {
 
-        container.innerHTML = 
+        container.innerHTML = `
 
             <div class="empty-shelf">
 
@@ -1991,7 +1992,7 @@ function showShelfPage() {
 
             </div>
 
-        ;
+        `;
 
         return;
     }
@@ -2017,7 +2018,7 @@ function showShelfPage() {
 
 function showBookDetails(book) {
 
-    elements.app.innerHTML = 
+    elements.app.innerHTML = `
 
         <section class="book-details-page">
 
@@ -2057,13 +2058,13 @@ function showBookDetails(book) {
 
                         ${
                             book.publisher
-                                ? 
+                                ? `
                                     <span>
                                         ${escapeHTML(
                                             book.publisher
                                         )}
                                     </span>
-                                  
+                                  `
                                 : ""
                         }
 
@@ -2137,7 +2138,7 @@ function showBookDetails(book) {
 
                         ${
                             book.isbn
-                                ? 
+                                ? `
                                     <div>
 
                                         <span>
@@ -2151,7 +2152,7 @@ function showBookDetails(book) {
                                         </strong>
 
                                     </div>
-                                  
+                                  `
                                 : ""
                         }
 
@@ -2163,7 +2164,7 @@ function showBookDetails(book) {
 
         </section>
 
-    ;
+    `;
 
 
     $("#detailSaveButton")
@@ -2216,7 +2217,7 @@ function showSimplePage(
     description
 ) {
 
-    elements.app.innerHTML = 
+    elements.app.innerHTML = `
 
         <section class="simple-page">
 
@@ -2251,7 +2252,7 @@ function showSimplePage(
 
         </section>
 
-    ;
+    `;
 
 
     window.scrollTo({
@@ -2268,7 +2269,7 @@ function showSimplePage(
 
 function showNotFound() {
 
-    elements.app.innerHTML = 
+    elements.app.innerHTML = `
 
         <section class="simple-page">
 
@@ -2299,7 +2300,7 @@ function showNotFound() {
 
         </section>
 
-    ;
+    `;
 
 }
 
@@ -2323,7 +2324,7 @@ function renderBookSkeletons(
             {
                 length: count
             },
-            () => 
+            () => `
 
                 <article class="book-card skeleton-card">
 
@@ -2339,7 +2340,7 @@ function renderBookSkeletons(
 
                 </article>
 
-            
+            `
         ).join("");
 
 }
@@ -2359,7 +2360,7 @@ function renderError(
     }
 
 
-    container.innerHTML = 
+    container.innerHTML = `
 
         <div class="empty-state">
 
@@ -2377,7 +2378,7 @@ function renderError(
 
         </div>
 
-    ;
+    `;
 
 }
 
@@ -2488,13 +2489,13 @@ document.addEventListener(
 
         document.documentElement.style.setProperty(
             "--pointer-x",
-            ${event.clientX}px`
+            `${event.clientX}px`
         );
 
 
         document.documentElement.style.setProperty(
             "--pointer-y",
-            ${event.clientY}px`
+            `${event.clientY}px`
         );
 
     }
