@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#08090d">
+    <meta name="description" content="A beautiful digital library for discovering books, authors and ideas.">
+
+    <title>The Grand Library</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         AMBIENT BACKGROUND
+    ========================================================== -->
+
+    <div class="ambient-background" aria-hidden="true">
+        <div class="ambient-glow glow-one"></div>
+        <div class="ambient-glow glow-two"></div>
+        <div class="ambient-glow glow-three"></div>
+
+        <div class="dust-field">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         TOP NAVIGATION
+    ========================================================== -->
+
+    <header class="top-navigation">
+
+        <a href="#/" class="library-logo">
+            <span class="logo-mark">✦</span>
+
+            <span class="logo-text">
+                <strong>The Grand Library</strong>
+                <small>Stories · Knowledge · Ideas</small>
+            </span>
+        </a>
+
+
+        <nav class="main-navigation" aria-label="Main navigation">
+
+            <a href="#/" class="nav-link active">
+                Home
+            </a>
+
+            <a href="#/explore" class="nav-link">
+                Explore
+            </a>
+
+            <a href="#/categories" class="nav-link">
+                Categories
+            </a>
+
+            <a href="#/authors" class="nav-link">
+                Authors
+            </a>
+
+            <a href="#/shelf" class="nav-link">
+                My Shelf
+            </a>
+
+        </nav>
+
+
+        <div class="navigation-actions">
+
+            <button
+                class="icon-button search-button"
+                type="button"
+                aria-label="Search books"
+                title="Search books"
+            >
+                <span>⌕</span>
+            </button>
+
+            <button
+                class="profile-button"
+                type="button"
+                aria-label="Library profile"
+            >
+                <span>☼</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN APPLICATION
+    ========================================================== -->
+
+    <main id="app">
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <div class="hero-eyebrow">
+                    <span class="eyebrow-line"></span>
+                    <span>A DIGITAL SANCTUARY FOR READERS</span>
+                    <span class="eyebrow-line"></span>
+                </div>
+
+
+                <h1 class="hero-title">
+                    Enter a world
+                    <br>
+                    <em>made of books.</em>
+                </h1>
+
+
+                <p class="hero-description">
+                    Explore stories, discover extraordinary ideas,
+                    meet remarkable authors and find your next
+                    unforgettable book.
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a href="#/explore" class="primary-button">
+                        <span>Explore the Library</span>
+                        <span class="button-arrow">→</span>
+                    </a>
+
+                    <a href="#/categories" class="secondary-button">
+                        Browse Categories
+                    </a>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="hero-search">
+
+                    <span class="search-symbol">⌕</span>
+
+                    <input
+                        id="heroSearch"
+                        type="search"
+                        placeholder="Search books, authors, subjects..."
+                        autocomplete="off"
+                    >
+
+                    <kbd>⌘ K</kbd>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HERO DECORATION
+            ================================================== -->
+
+            <div class="hero-visual" aria-hidden="true">
+
+                <div class="moon-glow"></div>
+
+                <div class="floating-book book-back">
+                    <div class="book-cover-placeholder">
+                        <span>THE</span>
+                        <strong>LIBRARY</strong>
+                    </div>
+                </div>
+
+                <div class="floating-book book-middle">
+                    <div class="book-cover-placeholder">
+                        <span>OPEN</span>
+                        <strong>WORLDS</strong>
+                    </div>
+                </div>
+
+                <div class="floating-book book-front">
+                    <div class="book-cover-placeholder">
+                        <span>READ</span>
+                        <strong>MORE</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FEATURED BOOKS
+        ====================================================== -->
+
+        <section class="library-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-kicker">
+                        CURATED FOR YOU
+                    </span>
+
+                    <h2>
+                        Featured books
+                    </h2>
+                </div>
+
+                <a href="#/explore" class="text-link">
+                    View entire collection
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="book-grid" id="featuredBooks">
+
+                <!-- Books will be inserted by JavaScript -->
+
+                <article class="book-card skeleton-card">
+                    <div class="book-cover skeleton"></div>
+
+                    <div class="book-information">
+                        <div class="skeleton skeleton-line"></div>
+                        <div class="skeleton skeleton-line short"></div>
+                    </div>
+                </article>
+
+
+                <article class="book-card skeleton-card">
+                    <div class="book-cover skeleton"></div>
+
+                    <div class="book-information">
+                        <div class="skeleton skeleton-line"></div>
+                        <div class="skeleton skeleton-line short"></div>
+                    </div>
+                </article>
+
+
+                <article class="book-card skeleton-card">
+                    <div class="book-cover skeleton"></div>
+
+                    <div class="book-information">
+                        <div class="skeleton skeleton-line"></div>
+                        <div class="skeleton skeleton-line short"></div>
+                    </div>
+                </article>
+
+
+                <article class="book-card skeleton-card">
+                    <div class="book-cover skeleton"></div>
+
+                    <div class="book-information">
+                        <div class="skeleton skeleton-line"></div>
+                        <div class="skeleton skeleton-line short"></div>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CATEGORY ROOMS
+        ====================================================== -->
+
+        <section class="library-section category-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-kicker">
+                        ENTER ANOTHER ROOM
+                    </span>
+
+                    <h2>
+                        Explore by subject
+                    </h2>
+                </div>
+
+                <a href="#/categories" class="text-link">
+                    All categories
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="category-grid">
+
+
+                <a href="#/novels" class="category-card category-novels">
+
+                    <div class="category-light"></div>
+
+                    <div class="category-content">
+
+                        <span class="category-number">
+                            01
+                        </span>
+
+                        <div>
+                            <span class="category-label">
+                                FICTION
+                            </span>
+
+                            <h3>
+                                Novels
+                            </h3>
+
+                            <p>
+                                Stories that transport you somewhere else.
+                            </p>
+                        </div>
+
+                        <span class="category-arrow">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="#/ai" class="category-card category-ai">
+
+                    <div class="category-light"></div>
+
+                    <div class="category-content">
+
+                        <span class="category-number">
+                            02
+                        </span>
+
+                        <div>
+                            <span class="category-label">
+                                TECHNOLOGY
+                            </span>
+
+                            <h3>
+                                Artificial Intelligence
+                            </h3>
+
+                            <p>
+                                Machines, intelligence and the future.
+                            </p>
+                        </div>
+
+                        <span class="category-arrow">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="#/law" class="category-card category-law">
+
+                    <div class="category-light"></div>
+
+                    <div class="category-content">
+
+                        <span class="category-number">
+                            03
+                        </span>
+
+                        <div>
+                            <span class="category-label">
+                                SOCIETY
+                            </span>
+
+                            <h3>
+                                Law
+                            </h3>
+
+                            <p>
+                                Justice, rights, constitutions and society.
+                            </p>
+                        </div>
+
+                        <span class="category-arrow">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="#/science" class="category-card category-science">
+
+                    <div class="category-light"></div>
+
+                    <div class="category-content">
+
+                        <span class="category-number">
+                            04
+                        </span>
+
+                        <div>
+                            <span class="category-label">
+                                DISCOVERY
+                            </span>
+
+                            <h3>
+                                Science
+                            </h3>
+
+                            <p>
+                                Explore the universe and everything within it.
+                            </p>
+                        </div>
+
+                        <span class="category-arrow">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LIBRARY STATEMENT
+        ====================================================== -->
+
+        <section class="library-quote">
+
+            <div class="quote-decoration">
+                ✦
+            </div>
+
+            <blockquote>
+                “A library is not merely a collection of books.
+                It is a collection of worlds.”
+            </blockquote>
+
+            <span class="quote-caption">
+                THE GRAND LIBRARY
+            </span>
+
+        </section>
+
+
+        <!-- =====================================================
+             POPULAR COLLECTION
+        ====================================================== -->
+
+        <section class="library-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-kicker">
+                        DISCOVER SOMETHING NEW
+                    </span>
+
+                    <h2>
+                        Popular collection
+                    </h2>
+                </div>
+
+                <a href="#/explore" class="text-link">
+                    Explore more
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="horizontal-books" id="popularBooks">
+
+                <!-- JavaScript will populate this section -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             NEWSLETTER / DISCOVERY PANEL
+        ====================================================== -->
+
+        <section class="discovery-panel">
+
+            <div class="discovery-stars" aria-hidden="true">
+                <span>✦</span>
+                <span>·</span>
+                <span>✧</span>
+                <span>·</span>
+                <span>✦</span>
+            </div>
+
+            <div class="discovery-content">
+
+                <span class="section-kicker">
+                    THE LIBRARY NEVER CLOSES
+                </span>
+
+                <h2>
+                    There is always
+                    <em>another story.</em>
+                </h2>
+
+                <p>
+                    Search millions of books, discover new authors
+                    and build a shelf that belongs entirely to you.
+                </p>
+
+                <a href="#/explore" class="primary-button">
+                    <span>Begin Exploring</span>
+                    <span class="button-arrow">→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <div class="library-logo footer-logo">
+
+                    <span class="logo-mark">
+                        ✦
+                    </span>
+
+                    <span class="logo-text">
+                        <strong>The Grand Library</strong>
+                        <small>Stories · Knowledge · Ideas</small>
+                    </span>
+
+                </div>
+
+                <p>
+                    A beautiful place to discover books,
+                    authors and ideas from around the world.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Library
+                </h3>
+
+                <a href="#/explore">Explore</a>
+                <a href="#/categories">Categories</a>
+                <a href="#/authors">Authors</a>
+                <a href="#/shelf">My Shelf</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Popular
+                </h3>
+
+                <a href="#/novels">Novels</a>
+                <a href="#/ai">Artificial Intelligence</a>
+                <a href="#/law">Law</a>
+                <a href="#/science">Science</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    About
+                </h3>
+
+                <a href="#/about">About the Library</a>
+                <a href="#/authors">Authors</a>
+                <a href="#/help">Help</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 The Grand Library
+            </span>
+
+            <span>
+                Built for people who love books. ✦
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         SEARCH OVERLAY
+    ========================================================== -->
+
+    <div
+        class="search-overlay"
+        id="searchOverlay"
+        aria-hidden="true"
+    >
+
+        <div class="search-overlay-backdrop"></div>
+
+        <div class="search-dialog">
+
+            <div class="search-dialog-header">
+
+                <span>
+                    SEARCH THE LIBRARY
+                </span>
+
+                <button
+                    type="button"
+                    class="close-search"
+                    aria-label="Close search"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="large-search">
+
+                <span>
+                    ⌕
+                </span>
+
+                <input
+                    id="globalSearch"
+                    type="search"
+                    placeholder="Search for a book, author or subject..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="search-suggestions">
+
+                <span>
+                    Try searching for
+                </span>
+
+                <button type="button">
+                    Artificial Intelligence
+                </button>
+
+                <button type="button">
+                    Novels
+                </button>
+
+                <button type="button">
+                    Science
+                </button>
+
+                <button type="button">
+                    Philosophy
+                </button>
+
+            </div>
+
+
+            <div
+                class="search-results"
+                id="searchResults"
+            >
+                <!-- Search results will appear here -->
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         TOAST
+    ========================================================== -->
+
+    <div
+        class="library-toast"
+        id="libraryToast"
+        role="status"
+        aria-live="polite"
+    >
+        <span class="toast-icon">✦</span>
+        <span class="toast-message">
+            Welcome to the library.
+        </span>
+    </div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
